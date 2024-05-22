@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Wallet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Blockchain Wallet</h1>
+
+        <div id="wallet-section">
+            <button id="generate-wallet">Generate Wallet</button>
+            <div id="wallet-keys">
+                <h2>Your Wallet</h2>
+                <p><strong>Public Key:</strong> <span id="public-key"></span></p>
+                <p><strong>Private Key:</strong> <span id="private-key"></span></p>
+            </div>
+        </div>
+
+        <form id="transaction-form">
+            <h2>Send Money</h2>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required>
+
+            <label for="payee">Payee Public Key:</label>
+            <textarea id="payee" name="payee" required></textarea>
+
+            <button type="submit">Send Money</button>
+        </form>
+
+        <h2>Blockchain</h2>
+        <div id="blockchain-output"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
