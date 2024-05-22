@@ -87,3 +87,28 @@ button:hover {
 #logout-link a:hover {
     text-decoration: underline;
 }
+
+/* Button styles */
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.buttons a {
+    margin: 0 10px; /* Adjust spacing between buttons */
+}
+
+.buttons button {
+    padding: 10px 20px; /* Adjust button padding */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add smooth transition on hover */
+}
+
+.buttons button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
