@@ -1,25 +1,27 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #000;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Galactic background pattern */
 }
 
 .container {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* White box shadow with transparency */
     max-width: 500px;
     width: 100%;
 }
 
 h1, h2 {
     text-align: center;
+    color: #fff; /* White text color */
 }
 
 form {
@@ -30,6 +32,7 @@ form {
 
 label {
     margin-top: 10px;
+    color: #fff; /* White text color */
 }
 
 input, textarea {
@@ -41,12 +44,13 @@ input, textarea {
 
 button {
     margin-top: 20px;
-    padding: 10px;
+    padding: 10px 20px; /* Increased padding */
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    align-self: center; /* Center button horizontally */
 }
 
 button:hover {
@@ -56,16 +60,20 @@ button:hover {
 #blockchain-output {
     margin-top: 20px;
     padding: 10px;
-    background-color: #e9ecef;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
     border-radius: 5px;
     word-break: break-word;
 }
 
 #wallet-keys {
-    display: none;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center contents horizontally */
 }
 
 #wallet-keys p {
     word-break: break-all;
     margin: 10px 0;
+    color: #fff; /* White text color */
 }
