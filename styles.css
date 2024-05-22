@@ -5,45 +5,8 @@ body, html {
     height: 100%;
 }
 
-/* Styles for the Giphy embed container */
-.giphy-embed-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
 
-/* Styles for the Giphy iframe */
-.giphy-embed-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none; /* Remove border */
-}
 
-/* Styles for the Giphy attribution link */
-.giphy-embed-container p {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    margin: 0;
-    color: white; /* Example: Set text color to white */
-    font-family: Arial, sans-serif; /* Specify font family */
-    font-size: 14px; /* Specify font size */
-}
-
-/* Container styles */
-.container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2 {
-    text-align: center;
-    margin-bottom: 20px; /* Add spacing below headings */
-}
 
 /* Form styles */
 form {
@@ -137,4 +100,46 @@ button:hover {
 
 .buttons button:hover {
     background-color: rgba(255, 255, 255, 0.5); /* Lighter semi-transparent white on hover */
+}
+
+/* Background container */
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Styles for the Giphy embed container */
+.giphy-embed-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure the iframe doesn't interfere with content */
+    z-index: -1; /* Place it behind other content */
+}
+
+/* Styles for the Giphy iframe */
+.giphy-embed-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Styles for the rest of your content */
+.container {
+    position: relative;
+    z-index: 1; /* Place it above the background */
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
 }
