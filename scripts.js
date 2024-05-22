@@ -201,3 +201,22 @@ document.getElementById('create-account-form').addEventListener('submit', functi
 function redirectToLogin() {
     window.location.href = 'login.html'; // Redirect to login page
 }
+
+function login() {
+    // Get form data
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const zipCode = document.getElementById('zipCode').value;
+
+    // Store form data in localStorage (you can use other methods like cookies or session storage)
+    localStorage.setItem('firstName', firstName);
+    localStorage.setItem('lastName', lastName);
+    localStorage.setItem('email', email);
+    localStorage.setItem('phone', phone);
+    localStorage.setItem('zipCode', zipCode);
+
+    // Redirect to profile page
+    window.location.href = 'profile.html';
+}
