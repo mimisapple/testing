@@ -173,3 +173,31 @@ document.getElementById('login-form').addEventListener('submit', handleLoginForm
 document.getElementById('create-account-form').addEventListener('submit', handleCreateAccountFormSubmit);
 document.getElementById('transaction-form').addEventListener('submit', handleTransactionFormSubmit);
 
+// Function to handle form submission
+document.getElementById('create-account-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get form data
+    const firstName = document.getElementById('first-name').value;
+    // Get other form data (last name, email, phone number, zip code)
+
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    // Validate password and confirm password match
+    if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return;
+    }
+
+    // If passwords match, proceed with account creation
+    // You can implement further logic here (e.g., sending data to server)
+
+    // Clear form fields
+    this.reset();
+});
+
+// Function to redirect to login page after account creation
+function redirectToLogin() {
+    window.location.href = 'login.html'; // Redirect to login page
+}
