@@ -3,14 +3,20 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    overflow: hidden; /* Prevent scrolling */
+    background-color: #000;
+    background-image: url('<iframe src="https://giphy.com/embed/Rpg08oZ3MzkdOWjm8c" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/space-galactic-galaxies-Rpg08oZ3MzkdOWjm8c">via GIPHY</a></p>'); /* Add video embed link */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    animation: none; /* Remove background travel animation */
 }
 
+/* Container styles */
 .container {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -39,7 +45,7 @@ button {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
-    border: 1 px solid #ccc;
+    border: 1px solid #ccc; /* Fix typo in border property */
     border-radius: 5px;
 }
 
@@ -101,7 +107,7 @@ button:hover {
 
 .buttons button {
     padding: 10px 20px; /* Adjust button padding */
-    background-color: #007bff;
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -110,5 +116,5 @@ button:hover {
 }
 
 .buttons button:hover {
-    background-color: #0056b3; /* Change background color on hover */
+    background-color: rgba(255, 255, 255, 0.5); /* Lighter semi-transparent white on hover */
 }
