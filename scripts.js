@@ -41,7 +41,7 @@ class Chain {
     }
 
     async addBlock(transaction, senderPublicKey, signature) {
-        console.log("🐢 Sending TurtleCoin...");
+        console.log("🐢 Sending AXIS...");
 
         const encoder = new TextEncoder();
         const data = encoder.encode(transaction.toString());
