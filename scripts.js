@@ -83,22 +83,22 @@ class Chain {
     }
 
     displayBlockchain() {
-    const output = document.getElementById('blockchain-output');
-    output.innerHTML = '';
+        const output = document.getElementById('blockchain-output');
+        output.innerHTML = '';
 
-    Chain.instance.chain.forEach(block => {
-        const blockElem = document.createElement('div');
-        blockElem.className = 'block';
-        blockElem.textContent = `
-            Previous Hash: ${block.prevHash}
-            Transaction: ${block.transaction.toString()}
-            Timestamp: ${block.ts}
-            Nonce: ${block.numOnlyUsedOnce}
-            Hash: ${block.hash}
-        `;
-        output.appendChild(blockElem);
-    });
-}
+        Chain.instance.chain.forEach(block => {
+            const blockElem = document.createElement('div');
+            blockElem.className = 'block';
+            blockElem.textContent = `
+                Previous Hash: ${block.prevHash}
+                Transaction: ${block.transaction.toString()}
+                Timestamp: ${block.ts}
+                Nonce: ${block.numOnlyUsedOnce}
+                Hash: ${block.hash}
+            `;
+            output.appendChild(blockElem);
+        });
+    }
 }
 
 class Wallet {
