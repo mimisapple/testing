@@ -178,7 +178,7 @@ document.getElementById('create-account-form').addEventListener('submit', functi
     event.preventDefault(); // Prevent default form submission
 
     // Get form data
-    const firstName = document.getElementById('first-name').value;
+    const firstName = document.getElementById('firstName').value;
     // Get other form data (last name, email, phone number, zip code)
 
     const password = document.getElementById('password').value;
