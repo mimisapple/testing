@@ -182,4 +182,3 @@ document.getElementById('transaction-form').addEventListener('submit', function(
 document.addEventListener('DOMContentLoaded', () => {
     Chain.instance.displayBlockchain();
 });
-``
