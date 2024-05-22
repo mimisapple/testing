@@ -3,29 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AXIS Wallet</title>
+    <title>AXIS Wallet App</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
     <div class="container">
-        <h1>AXIS Wallet</h1>
-        <div id="wallet-keys">
-            <h2>Your Wallet Keys</h2>
-            <p><strong>Public Key:</strong> <span id="public-key"></span></p>
-            <p><strong>Private Key:</strong> <span id="private-key"></span></p>
-        </div>
-        <form id="transaction-form">
-            <h2>Send AXIS</h2>
-            <input type="text" id="amount" placeholder="Amount" required>
-            <input type="text" id="payee" placeholder="Payee's Public Key" required>
-            <button type="submit">Send</button>
-        </form>
-        <div id="blockchain-output">
-            <!-- Blockchain output will be displayed here -->
+        <h1>Welcome to AXIS Wallet App</h1>
+        <p>Please select an option:</p>
+        <div class="buttons">
+            <a href="login.html"><button>Login</button></a>
+            <a href="create-account.html"><button>Create Account</button></a>
+            <a href="profile.html"><button>Profile</button></a>
         </div>
     </div>
-
     <script src="scripts.js"></script>
 </body>
 </html>
