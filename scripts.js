@@ -83,21 +83,23 @@ class Chain {
     }
 
     displayBlockchain() {
-        const output = document.getElementById('blockchain-output');
-        output.innerHTML = '';
+    const output = document.getElementById('blockchain-output');
+    output.innerHTML = '';
 
-        Chain.instance.chain.forEach(block => {
-            const blockElem = document.createElement('div');
-            blockElem.className = 'block';
-            blockElem.textContent = `
-                Previous Hash: ${block.prevHash}
-                Transaction: ${block.transaction.toString()}
-                Timestamp: ${block.ts}
-                Nonce: ${block.numOnlyUsedOnce}
-                Hash: ${block.hash}
-            `;
-            output.appendChild(blockElem);
-        });
+    Chain.instance.chain.forEach(block => {
+        const blockElem = document.createElement('div');
+        blockElem.className = 'block';
+        blockElem.innerHTML = `
+            <div class="transaction-info">
+                <p>Transaction: ${block.transaction.toString()}</p>
+                <p>Timestamp: ${block.ts}</p>
+                <p>Nonce: ${block.numOnlyUsedOnce}</p>
+                <p>Hash: ${block.hash}</p>
+            </div>
+        `;
+        output.appendChild(blockElem);
+    });
+
     }
 }
 
