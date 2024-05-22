@@ -114,3 +114,62 @@ const wallet = new Wallet();
 // Display public and private keys
 document.getElementById('public-key').textContent = wallet.publicKey;
 document
+
+
+// JavaScript code for handling form submissions, generating keys, etc.
+// This file will be shared across all pages as it contains common functionality.
+
+// Function to generate a random string of a specified length
+function generateRandomString(length) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+}
+
+// Function to generate a private key
+function generatePrivateKey() {
+    return '0x' + generateRandomString(64); // Assuming a traditional crypto private key format with added zeros
+}
+
+// Function to generate a public key
+function generatePublicKey() {
+    return '0x' + generateRandomString(66); // Assuming a traditional crypto public key format with added zeros
+}
+
+// Function to handle login form submission
+function handleLoginFormSubmit(event) {
+    event.preventDefault();
+    // Implement login logic here
+    console.log('Login form submitted');
+    // Redirect to wallet profile page after successful login
+    window.location.href = 'profile.html';
+}
+
+// Function to handle create account form submission
+function handleCreateAccountFormSubmit(event) {
+    event.preventDefault();
+    // Implement account creation logic here
+    console.log('Create account form submitted');
+    // Generate private and public keys
+    const privateKey = generatePrivateKey();
+    const publicKey = generatePublicKey();
+    // Update DOM to display keys
+    document.getElementById('private-key').textContent = privateKey;
+    document.getElementById('public-key').textContent = publicKey;
+}
+
+// Function to handle transaction form submission
+function handleTransactionFormSubmit(event) {
+    event.preventDefault();
+    // Implement transaction processing logic here
+    console.log('Transaction form submitted');
+}
+
+// Add event listeners for form submissions
+document.getElementById('login-form').addEventListener('submit', handleLoginFormSubmit);
+document.getElementById('create-account-form').addEventListener('submit', handleCreateAccountFormSubmit);
+document.getElementById('transaction-form').addEventListener('submit', handleTransactionFormSubmit);
+
