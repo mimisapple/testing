@@ -1,39 +1,30 @@
-class Wallet {
-    constructor() {
-        this.generateKeys();
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXIS Wallet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AXIS Wallet</h1>
+        <div id="wallet-keys">
+            <h2>Your Wallet Keys</h2>
+            <p><strong>Public Key:</strong> <span id="public-key"></span></p>
+            <p><strong>Private Key:</strong> <span id="private-key"></span></p>
+        </div>
+        <form id="transaction-form">
+            <h2>Send AXIS</h2>
+            <input type="text" id="amount" placeholder="Amount" required>
+            <input type="text" id="payee" placeholder="Payee's Public Key" required>
+            <button type="submit">Send</button>
+        </form>
+        <div id="blockchain-output">
+            <!-- Blockchain output will be displayed here -->
+        </div>
+    </div>
 
-    generateKeys() {
-        this.privateKey = this.generateHexKey(64); // 64 characters for a 256-bit key
-        this.publicKey = this.generateHexKey(64); // 64 characters for a 256-bit key
-
-        document.getElementById('public-key').textContent = this.publicKey;
-        document.getElementById('private-key').textContent = this.privateKey;
-        document.getElementById('wallet-keys').style.display = 'block';
-    }
-
-    generateHexKey(length) {
-        let key = '';
-        const characters = '0123456789abcdef';
-
-        for (let i = 0; i < length; i++) {
-            key += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-
-        return key;
-    }
-
-    async sendMoney(amount, payeePublicKey) {
-        const transaction = new Transaction(amount, this.publicKey, payeePublicKey);
-        const signature = this.signTransaction(transaction);
-
-        Chain.instance.addBlock(transaction, this.publicKey, signature);
-    }
-
-    signTransaction(transaction) {
-        // Simplified signing using HMAC for mnemonic keys
-        const key = CryptoJS.enc.Hex.parse(this.privateKey);
-        const data = CryptoJS.enc.Utf8.parse(transaction.toString());
-        return CryptoJS.HmacSHA256(data, key).toString();
-    }
-}
+    <script src="scripts.js"></script>
+</body>
+</html>
