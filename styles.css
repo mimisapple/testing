@@ -1,42 +1,37 @@
 /* Global styles */
+
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
 }
 
-.background-video {
+/* Styles for the Giphy embed container */
+.giphy-embed-container {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
 
-.background-video::before {
-    content: "";
+/* Styles for the Giphy iframe */
+.giphy-embed-container iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    background: url('https://media.giphy.com/media/Rpg08oZ3MzkdOWjm8c/giphy.gif') no-repeat center center;
-    background-size: cover;
-    animation: travel 60s linear infinite;
 }
 
-.content {
-    position: relative;
-    z-index: 1;
-    /* Your content styles */
-}
-
-.giphy-video {
+/* Styles for the Giphy attribution link */
+.giphy-embed-container p {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 10px;
+    left: 10px;
+    margin: 0;
+    color: white; /* Example: Set text color to white */
 }
+
+
 
 /* Container styles */
 .container {
