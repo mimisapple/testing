@@ -65,6 +65,9 @@ button:hover {
     display: none;
 }
 
+
 #wallet-keys p {
     word-break: break-all;
+    margin: 10px 0;
 }
+
