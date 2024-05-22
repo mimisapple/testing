@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Wallet Profile</h1>
+        <div id="wallet-info">
+            <h2>Wallet Information</h2>
+            <p><strong>Public Key:</strong> <span id="public-key"></span></p>
+            <p><strong>Private Key:</strong> <span id="private-key"></span></p>
+        </div>
+        <div id="transaction-history">
+            <h2>Transaction History</h2>
+            <!-- Transaction history will be displayed here -->
+        </div>
+        <form id="transaction-form">
+            <h2>Process Transaction</h2>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" required>
+            <label for="recipient">Recipient's Public Key:</label>
+            <input type="text" id="recipient" required>
+            <button type="submit">Send</button>
+        </form>
+        <p><a href="login.html">Logout</a></p>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
