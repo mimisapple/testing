@@ -1,3 +1,8 @@
+const wordList = [
+    "apple", "orange", "banana", "grape", "pear", "peach", "plum", "berry", "melon", "kiwi",
+    "lime", "lemon", "cherry", "fig", "date", "mango", "papaya", "guava", "apricot", "avocado"
+];
+
 class Transaction {
     constructor(amount, payer, payee) {
         this.amount = amount;
@@ -41,23 +46,7 @@ class Chain {
         const encoder = new TextEncoder();
         const data = encoder.encode(transaction.toString());
 
-        const key = await crypto.subtle.importKey(
-            'spki',
-            this.base64ToArrayBuffer(senderPublicKey),
-            {
-                name: 'RSASSA-PKCS1-v1_5',
-                hash: 'SHA-256'
-            },
-            true,
-            ['verify']
-        );
-
-        const isValid = await crypto.subtle.verify(
-            'RSASSA-PKCS1-v1_5',
-            key,
-            this.base64ToArrayBuffer(signature),
-            data
-        );
+        const isValid = this.verifySignature(senderPublicKey, signature, data);
 
         if (isValid) {
             console.log("🐢 Transaction is valid!");
@@ -68,6 +57,13 @@ class Chain {
         } else {
             alert("Transaction is invalid!");
         }
+    }
+
+    verifySignature(publicKey, signature, data) {
+        // Simplified verification using HMAC for mnemonic keys
+        const key = CryptoJS.enc.Hex.parse(publicKey);
+        const hash = CryptoJS.HmacSHA256(data, key).toString();
+        return hash === signature;
     }
 
     mine(numOnlyUsedOnce) {
@@ -84,16 +80,6 @@ class Chain {
 
             solution += 1;
         }
-    }
-
-    base64ToArrayBuffer(base64) {
-        const binaryString = window.atob(base64);
-        const len = binaryString.length;
-        const bytes = new Uint8Array(len);
-        for (let i = 0; i < len; i++) {
-            bytes[i] = binaryString.charCodeAt(i);
-        }
-        return bytes.buffer;
     }
 
     displayBlockchain() {
@@ -120,45 +106,38 @@ class Wallet {
         this.generateKeys();
     }
 
-    async generateKeys() {
-        const keypair = await crypto.subtle.generateKey(
-            {
-                name: 'RSASSA-PKCS1-v1_5',
-                modulusLength: 2048,
-                publicExponent: new Uint8Array([1, 0, 1]),
-                hash: 'SHA-256',
-            },
-            true,
-            ['sign', 'verify']
-        );
+    generateKeys() {
+        this.privateKey = this.generateMnemonicKey();
+        this.publicKey = this.generateMnemonicKey();
 
-        this.privateKey = await crypto.subtle.exportKey('pkcs8', keypair.privateKey);
-        this.publicKey = await crypto.subtle.exportKey('spki', keypair.publicKey);
-
-        document.getElementById('public-key').textContent = this.arrayBufferToBase64(this.publicKey);
-        document.getElementById('private-key').textContent = this.arrayBufferToBase64(this.privateKey);
+        document.getElementById('public-key').textContent = this.publicKey;
+        document.getElementById('private-key').textContent = this.privateKey;
         document.getElementById('wallet-keys').style.display = 'block';
     }
 
-    async sendMoney(amount, payeePublicKey) {
-        const transaction = new Transaction(amount, this.arrayBufferToBase64(this.publicKey), payeePublicKey);
-
-        const sign = await crypto.subtle.sign(
-            {
-                name: 'RSASSA-PKCS1-v1_5',
-            },
-            await crypto.subtle.importKey('pkcs8', this.privateKey, {name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256'}, true, ['sign']),
-            new TextEncoder().encode(transaction.toString())
-        );
-
-        Chain.instance.addBlock(transaction, this.arrayBufferToBase64(this.publicKey), this.arrayBufferToBase64(sign));
+    generateMnemonicKey() {
+        let key = '';
+        while (key.length < 20) {
+            const word = wordList[Math.floor(Math.random() * wordList.length)];
+            if (key.length + word.length <= 20) {
+                key += word;
+            }
+        }
+        return key;
     }
 
-    arrayBufferToBase64(buffer) {
-        const bytes = new Uint8Array(buffer);
-        let binary = '';
-        bytes.forEach((b) => binary += String.fromCharCode(b));
-        return window.btoa(binary);
+    async sendMoney(amount, payeePublicKey) {
+        const transaction = new Transaction(amount, this.publicKey, payeePublicKey);
+        const signature = this.signTransaction(transaction);
+
+        Chain.instance.addBlock(transaction, this.publicKey, signature);
+    }
+
+    signTransaction(transaction) {
+        // Simplified signing using HMAC for mnemonic keys
+        const key = CryptoJS.enc.Hex.parse(this.privateKey);
+        const data = CryptoJS.enc.Utf8.parse(transaction.toString());
+        return CryptoJS.HmacSHA256(data, key).toString();
     }
 }
 
@@ -181,4 +160,36 @@ document.getElementById('transaction-form').addEventListener('submit', function(
 
 document.addEventListener('DOMContentLoaded', () => {
     Chain.instance.displayBlockchain();
+});
+
+// Authentication Logic
+const accounts = JSON.parse(localStorage.getItem('accounts')) || {};
+
+document.getElementById('create-account-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.getElementById('new-username').value;
+    const password = document.getElementById('new-password').value;
+
+    if (accounts[username]) {
+        alert('Username already exists!');
+    } else {
+        accounts[username] = password;
+        localStorage.setItem('accounts', JSON.stringify(accounts));
+        alert('Account created successfully!');
+    }
+});
+
+document.getElementById('sign-in-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (accounts[username] && accounts[username] === password) {
+        alert('Sign in successful!');
+        document.getElementById('auth-section').style.display = 'none';
+        document.getElementById('wallet-section').style.display = 'block';
+        document.getElementById('transaction-form').style.display = 'block';
+    } else {
+        alert('Invalid username or password!');
+    }
 });
