@@ -1,0 +1,173 @@
+
+element.style {
+}
+:root, :host, .spxThemeOverride {
+    --color_0: 255, 255, 255;
+    --color_1: 255, 255, 255;
+    --color_2: 0, 0, 0;
+    --color_3: 237, 28, 36;
+    --color_4: 0, 136, 203;
+    --color_5: 255, 203, 5;
+    --color_6: 114, 114, 114;
+    --color_7: 176, 176, 176;
+    --color_8: 255, 255, 255;
+    --color_9: 114, 114, 114;
+    --color_10: 176, 176, 176;
+    --color_11: 0, 0, 0;
+    --color_12: 153, 153, 151;
+    --color_13: 199, 199, 199;
+    --color_14: 232, 230, 230;
+    --color_15: 255, 255, 255;
+    --color_16: 85, 65, 7;
+    --color_17: 170, 131, 13;
+    --color_18: 255, 196, 20;
+    --color_19: 255, 226, 138;
+    --color_20: 255, 235, 177;
+    --color_21: 26, 63, 78;
+    --color_22: 51, 125, 155;
+    --color_23: 77, 188, 233;
+    --color_24: 160, 217, 240;
+    --color_25: 192, 232, 248;
+    --color_26: 85, 38, 7;
+    --color_27: 170, 76, 13;
+    --color_28: 255, 114, 20;
+    --color_29: 255, 185, 138;
+    --color_30: 255, 208, 177;
+    --color_31: 81, 11, 26;
+    --color_32: 162, 22, 52;
+    --color_33: 243, 33, 78;
+    --color_34: 247, 140, 163;
+    --color_35: 251, 179, 194;
+    --color_36: 0, 0, 0;
+    --color_37: 255, 255, 255;
+    --color_38: 153, 153, 151;
+    --color_39: 199, 199, 199;
+    --color_40: 232, 230, 230;
+    --color_41: 255, 196, 20;
+    --color_42: 170, 131, 13;
+    --color_43: 199, 199, 199;
+    --color_44: 0, 0, 0;
+    --color_45: 255, 255, 255;
+    --color_46: 255, 255, 255;
+    --color_47: 232, 230, 230;
+    --color_48: 255, 196, 20;
+    --color_49: 255, 196, 20;
+    --color_50: 0, 0, 0;
+    --color_51: 0, 0, 0;
+    --color_52: 255, 196, 20;
+    --color_53: 255, 196, 20;
+    --color_54: 199, 199, 199;
+    --color_55: 199, 199, 199;
+    --color_56: 0, 0, 0;
+    --color_57: 0, 0, 0;
+    --color_58: 255, 196, 20;
+    --color_59: 255, 196, 20;
+    --color_60: 255, 196, 20;
+    --color_61: 255, 196, 20;
+    --color_62: 0, 0, 0;
+    --color_63: 0, 0, 0;
+    --color_64: 199, 199, 199;
+    --color_65: 199, 199, 199;
+    --font_0: normal normal bold 18px/normal arian-lt-w20-light, sans-serif;
+    --font_1: normal normal normal 16px/1.4em din-next-w01-light, din-next-w02-light, din-next-w10-light, sans-serif;
+    --font_2: normal normal normal 60px/1.4em avenir-lt-w01_85-heavy1475544, avenir-lt-w05_85-heavy, sans-serif;
+    --font_3: normal normal normal 50px/1.4em avenir-lt-w01_85-heavy1475544, avenir-lt-w05_85-heavy, sans-serif;
+    --font_4: normal normal normal 40px/1.4em avenir-lt-w01_85-heavy1475544, avenir-lt-w05_85-heavy, sans-serif;
+    --font_5: normal normal normal 30px/1.4em avenir-lt-w01_85-heavy1475544, avenir-lt-w05_85-heavy, sans-serif;
+    --font_6: normal normal normal 21px/1.4em avenir-lt-w01_85-heavy1475544, avenir-lt-w05_85-heavy, sans-serif;
+    --font_7: normal normal normal 21px/1.4em avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif;
+    --font_8: normal normal normal 18px/1.4em arian-lt-w20-regular, sans-serif;
+    --font_9: normal normal normal 14px/1.4em avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif;
+    --font_10: normal normal normal 12px/1.4em din-next-w01-light, din-next-w02-light, din-next-w10-light, sans-serif;
+    --wix-ads-height: 50px;
+    --sticky-offset: 50px;
+    --wix-ads-top-height: 50px;
+    --vh-unit: calc( (100vh - 50px) / 100);
+    --site-width: 980px;
+    --above-all-z-index: 100000;
+    --portals-z-index: 100001;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --minViewportSize: 320;
+    --maxViewportSize: 1920;
+    --theme-spx-ratio: 1px;
+}
+
+:root {
+    --wst-button-color-fill-primary: rgb(var(--color_48));
+    --wst-button-color-border-primary: rgb(var(--color_49));
+    --wst-button-color-text-primary: rgb(var(--color_50));
+    --wst-button-color-fill-primary-hover: rgb(var(--color_51));
+    --wst-button-color-border-primary-hover: rgb(var(--color_52));
+    --wst-button-color-text-primary-hover: rgb(var(--color_53));
+    --wst-button-color-fill-primary-disabled: rgb(var(--color_54));
+    --wst-button-color-border-primary-disabled: rgb(var(--color_55));
+    --wst-button-color-text-primary-disabled: rgb(var(--color_56));
+    --wst-button-color-fill-secondary: rgb(var(--color_57));
+    --wst-button-color-border-secondary: rgb(var(--color_58));
+    --wst-button-color-text-secondary: rgb(var(--color_59));
+    --wst-button-color-fill-secondary-hover: rgb(var(--color_60));
+    --wst-button-color-border-secondary-hover: rgb(var(--color_61));
+    --wst-button-color-text-secondary-hover: rgb(var(--color_62));
+    --wst-button-color-fill-secondary-disabled: rgb(var(--color_63));
+    --wst-button-color-border-secondary-disabled: rgb(var(--color_64));
+    --wst-button-color-text-secondary-disabled: rgb(var(--color_65));
+    --wst-color-fill-base-1: rgb(var(--color_36));
+    --wst-color-fill-base-2: rgb(var(--color_37));
+    --wst-color-fill-base-shade-1: rgb(var(--color_38));
+    --wst-color-fill-base-shade-2: rgb(var(--color_39));
+    --wst-color-fill-base-shade-3: rgb(var(--color_40));
+    --wst-color-fill-accent-1: rgb(var(--color_41));
+    --wst-color-fill-accent-2: rgb(var(--color_42));
+    --wst-color-fill-accent-3: rgb(var(--color_43));
+    --wst-color-fill-accent-4: rgb(var(--color_44));
+    --wst-color-fill-background-primary: rgb(var(--color_11));
+    --wst-color-fill-background-secondary: rgb(var(--color_12));
+    --wst-color-text-primary: rgb(var(--color_15));
+    --wst-color-text-secondary: rgb(var(--color_14));
+    --wst-color-action: rgb(var(--color_18));
+    --wst-color-disabled: rgb(var(--color_39));
+    --wst-color-title: rgb(var(--color_45));
+    --wst-color-subtitle: rgb(var(--color_46));
+    --wst-color-line: rgb(var(--color_47));
+    --wst-font-style-h2: var(--font_2);
+    --wst-font-style-h3: var(--font_3);
+    --wst-font-style-h4: var(--font_4);
+    --wst-font-style-h5: var(--font_5);
+    --wst-font-style-h6: var(--font_6);
+    --wst-font-style-body-large: var(--font_7);
+    --wst-font-style-body-medium: var(--font_8);
+    --wst-font-style-body-small: var(--font_9);
+    --wst-font-style-body-x-small: var(--font_10);
+}
+@supports (container-type:inline-size) {
+    :root {
+        --one-unit: 1cqw;
+    }
+}
+:root {
+    --one-unit: 1vw;
+    --section-max-width: 9999px;
+}
+body, html {
+    height: 100%;
+}
+body, html {
+    background: transparent;
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+html[Attributes Style] {
+    -webkit-locale: "en";
+}
+user agent stylesheet
+:root {
+    view-transition-name: root;
+}
+user agent stylesheet
+html {
+    display: block;
+}
